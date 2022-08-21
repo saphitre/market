@@ -57,7 +57,7 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
     public User createNewUser(User user){
-        user.setRoles(Collections.singleton(Role.ADMIN));
+        user.setRoles(Collections.singleton(Role.USER));
         if(getUserByUsername(user.getUsername())!=null){
             throw new DuplicateUserException();
         }

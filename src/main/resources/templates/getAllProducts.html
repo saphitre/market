@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>MARKET</title>
+
+    <link rel="stylesheet" href="/styles/getAllProducts.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <script src="/JS/getAllProducts.js"></script>
+
+</head>
+
+<body  ng-app="PRODUCTS" ng-controller="GET_ALL_PRODUCTS">
+<!--Навигационная панель-->
+<div id="navbar">
+    <div class="logo">
+        <div id="logo-text">MARKET</div>
+    </div>
+    <div class="logout"></div>
+    <div class="log-in"></div>
+</div>
+
+
+<!--Основное содержание страницы-->
+<div id="content">
+    <div class="table-description">
+        <label for="products-table" id="products-table-label">Каталог товаров</label>
+        <form method="get" id="product-search-form">
+            <input ng-change="inputValidation(product_id)" ng-model="product_id" class="form-control" id="InputProductId" placeholder="Артикул" type="number">
+            <button type="button"
+            ng-click="inputValidation(product_id)" class="btn-search">Найти</button>
+        </form>
+    </div>
+    <div id="table-container">
+        <table id="products-table">
+            <tr class="products-table-row">
+                <th class="product-table-cell-header">Артикул</th>
+                <th class="product-table-cell-header">Наименование товара</th>
+                <th class="product-table-cell-header">Наличие товара</th>
+                <th class="product-table-cell-header"></th>
+            </tr>
+            <tr class="products-table-row" ng-repeat="product in productList | orderBy: 'id' ">
+                <td class="product-table-cell">{{product.id}}</td>
+                <td class="product-table-cell">{{product.name}}</td>
+                <td class="product-table-cell">{{product.quantity}}</td>
+                <td class="product-table-cell">
+                    <button class="btn">Купить</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!--Подвал-->
+<div id="bottom">
+    <div class="contacts">GitHub: </div>
+    <div class="contacts">Telegram:</div>
+</div>
+</body>
+</html>

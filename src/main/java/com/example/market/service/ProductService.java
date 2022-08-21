@@ -2,6 +2,7 @@ package com.example.market.service;
 
 import com.example.market.model.entity.Product;
 import com.example.market.repository.ProductRepository;
+import net.bytebuddy.dynamic.DynamicType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

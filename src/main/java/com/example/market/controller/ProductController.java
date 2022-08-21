@@ -69,6 +69,12 @@ public class ProductController {
         } catch (EmptyResultDataAccessException e){
             throw new ProductNotFoundException();
         }
+    }
 
+    @Operation(summary = "Поиск продукта", description = "Поиск продукта по идентификационному номеру товара, для авторизированных пользователей")
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/searchById/")
+    public ResponseEntity getProductById(){
+        return ResponseEntity.ok(null);
     }
 }
