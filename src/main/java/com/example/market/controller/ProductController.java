@@ -54,7 +54,7 @@ public class ProductController {
     }
 
     @Operation(summary = "Поиск продукта", description = "Поиск продукта по идентификационному номеру товара, для авторизированных пользователей")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("permitAll()")
     @GetMapping(SEARCH_PRODUCT_BY_ID)
     public ResponseEntity getProductById(@PathVariable("product_id") Long id){
         return ResponseEntity.ok(productService.getById(id));
